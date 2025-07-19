@@ -1,10 +1,19 @@
-
 import React from 'react'
+import Swal from 'sweetalert2'
 
 const ProductCart = ({ image, name, price }) => {
+    const handleAddToCart = () => {
+        Swal.fire({
+            title: `"${name}" added to cart!`,
+            text: 'You can continue shopping or check your cart.',
+            icon: 'success',
+            confirmButtonColor: '#16a34a', // Tailwind green-600
+            confirmButtonText: 'OK'
+        })
+    }
+
     return (
         <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 ease-in-out flex flex-col">
-
             <div className="overflow-hidden">
                 <img
                     src={image}
@@ -13,7 +22,6 @@ const ProductCart = ({ image, name, price }) => {
                     loading="lazy"
                 />
             </div>
-
 
             <div className="p-4 flex flex-col justify-between flex-grow">
                 <div>
@@ -24,10 +32,9 @@ const ProductCart = ({ image, name, price }) => {
                     <p className="text-md text-green-600 font-bold mt-2">${price}</p>
                 </div>
 
-
                 <button
                     className="mt-4 px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition"
-                    onClick={() => alert(`"${name}" added to cart!`)}
+                    onClick={handleAddToCart}
                 >
                     Add to Cart
                 </button>
