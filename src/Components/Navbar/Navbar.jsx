@@ -7,6 +7,8 @@ import { IoCartOutline } from "react-icons/io5";
 import { HiMenu, HiX } from 'react-icons/hi';
 import Image from 'next/image';
 
+import Login from '../UserAuth/Login';
+
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
 
@@ -43,7 +45,9 @@ const Navbar = () => {
                             <IoCartOutline />
                             <Link href={"/"}>Cart</Link>
                         </div>
-                        <Link href={"/"} className='border border-black px-4 py-1 rounded'>Sign In</Link>
+                        <button onClick={() => document.getElementById('my_modal_3').showModal()} className='border border-black px-4 py-1 rounded'>
+                            Sign In
+                        </button>
                     </div>
 
                     {/* Mobile Icons */}
@@ -70,10 +74,25 @@ const Navbar = () => {
                             <IoCartOutline />
                             <Link href={"/"}>Cart</Link>
                         </div>
-                        <Link href={"/"} className='border border-black px-4 py-1 rounded w-fit'>Sign In</Link>
+                        <button
+                            onClick={() => document.getElementById('my_modal_3').showModal()}
+                            className='border border-black px-4 py-1 rounded w-fit'
+                        >
+                            Sign In
+                        </button>
                     </div>
                 )}
             </nav>
+
+            {/* Modal with SigninSignUp */}
+            <dialog id="my_modal_3" className="modal">
+                <div className="modal-box">
+                    <form method="dialog">
+                        <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                    </form>
+                    <Login /> {/* ✅ Here we include the login form component */}
+                </div>
+            </dialog>
         </header>
     );
 };
