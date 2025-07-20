@@ -4,7 +4,7 @@ import React, { useEffect } from 'react'
 import { FaGoogle, FaFacebookF } from 'react-icons/fa'
 
 const Register = ({ onClose }) => {
-    // Prevent background scroll when modal is open
+  
     useEffect(() => {
         document.body.style.overflow = 'hidden'
         return () => {

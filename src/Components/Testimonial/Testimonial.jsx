@@ -1,5 +1,5 @@
-// components/Testimonial.js or .tsx
-'use client' // if you're using Next.js App Router
+
+'use client' 
 
 import dynamic from 'next/dynamic'
 import React from 'react'
